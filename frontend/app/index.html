@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <title>My index</title>
+  <!-- vendorInject:css -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- endinject -->
+</head>
+<body onload="CallOnLoad()" ng-controller="Login">
+ Verifing angular five times fifty equals {{5*50}}<br/>
+
+<div id="info"></div>
+
+
+    <button ng-click="login()">Login</button>
+
+  <!-- verndorInject:js -->
+  <!-- endinject -->
+
+  <!-- inject:js -->
+  <!-- endinject -->
+    <script>
+
+        function CallOnLoad() {
+            // alert('On Load');
+        }
+        $(document).ready(function () {
+            //alert('On Ready full!');
+        });
+        $(function () {
+
+            $.ajax({
+                url: 'http://localhost:1337/user',
+                type: 'GET',
+                dataType: 'json',
+                success: function (result) {
+                    var insert = '<table><thead><tr><td>Name</td><td>Id</td></tr></thead>';
+                    if (result.id >=1) {
+                                insert += '<tr><td>' + result.name + '</td><td>' + result.id + '</td></tr>';
+                    }
+                    else {
+                        $.each(result, function (index, item) {
+                            if (item.name != null && item.name != '')
+                                insert += '<tr><td>' + item.name + '</td><td>' + item.id + '</td></tr>';
+                        });
+
+                    }
+                        insert += '</table>';
+                    $('#info').html(insert);
+                },
+                error: function (status) {
+                    alert('error occured' + status.statusText);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

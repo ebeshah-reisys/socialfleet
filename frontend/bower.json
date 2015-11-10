@@ -1,0 +1,26 @@
+{
+  "name": "frontend",
+  "version": "0.0.0",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "authors": [
+    "ebeshah <Esayas.Beshah@gmail.com>"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.0",
+    "satellizer": "~0.11.2",
+    "jquery.lazyload": "~1.9.5",
+    "jquery.maskedinput": "~1.4.1"
+  },
+  "homepage": "https://github.com/ebeshah-reisys/socialfleet",
+  "devDependencies": {
+    "satellizer": "~0.11.2"
+  }
+}
